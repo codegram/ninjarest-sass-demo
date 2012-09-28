@@ -1,0 +1,57 @@
+#shurikens
+  $enthropy: 2deg
+  .shuriken
+    h2
+      // Esta transformación se aplicará sobre el título de cada shuriken y
+      // sobre todas sus propiedades.
+      //
+      +single-transition(background-color, 0.5s)
+
+
+#search_box
+  // Pie-clearfix repara el típico problema del contenedor de elementos
+  // flotantes que no se dimensiona adecuadamente, pero sin recurrir al
+  // típico "overflow: hidden" que en ocasiones tiene efectos inesperados.
+  //
+  +pie-clearfix
+  form
+    input
+      float: left
+      height: 35px
+      margin: 0px
+      padding: 5px
+      display: block
+      +box-sizing(border-box)
+      border: 1px solid #ccc
+      background-color: $header-background-color
+      color: #bbb
+      &:focus
+        border-color: $main-color
+        background-color: #fff
+        color: #333
+      &[type=submit]
+        border-left: none
+        text-align: center
+        text-transform: uppercase
+
+    // El selector "+" selecciona los elementos vecinos que cumplan
+    // la condición. En este caso, cualquier botón definido después
+    // del input con foco.
+    //
+    input:focus + input[type="submit"]
+      border-color: $main-color
+      border-left: none
+      background-color: $main-color
+      color: #fff
+
+    input[type=text]
+      outline: none
+      width: 150px
+      +transition(all, 0.5s)
+      &:focus
+        width: 220px
+        +transition(all, 0.3s)
+
+#menu
+  ul ul
+    +single-transition(all, 0.4s)

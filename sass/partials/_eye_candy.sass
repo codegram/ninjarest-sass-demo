@@ -1,0 +1,116 @@
+a
+  text-decoration: none
+
+#header
+  +single-box-shadow
+  border-bottom: 1px solid #bbb
+
+#shurikens
+  .shuriken
+    +single-box-shadow
+    border: 1px solid $shuriken-border-color
+    position: relative
+    padding: 10px
+    z-index: 50
+    .image
+      margin-bottom: 1em
+      img
+        width: 100%
+    .actions
+      +reset-box-model
+      text-align: right
+      padding-bottom: 5px
+      li
+        +inline-block
+      a
+        +small-button(#f1f1f1)
+    h2
+      margin: 0px
+        bottom: 10px
+      text-align: center
+      font-size: 1.2em
+      text-transform: uppercase
+      padding: 5px 0px
+      color: #fff
+      background-color: #aaa
+      +single-text-shadow(lighten($font-color, 10%), 0px, 1px, 0px)
+      font-weight: bold
+
+    &:hover
+      $shadow-color: $main-color
+      z-index: 150
+      h2
+        background-color: $main-color
+
+#menu
+  font-size: 1.2em
+
+  a, span
+    padding: 0px 20px
+    display: block
+    color: $link-color
+    position: relative
+
+  span
+    cursor: default
+
+  & > ul > li
+    & > a, span
+      line-height: $header-height
+      height: $header-height - 1px
+
+  a:active, a:active:hover
+    background-color: $main-color
+    color: #fff
+
+  ul
+    background-color: $header-background-color
+    +horizontal-list(0)
+    ul li
+      display: block
+      float: none
+      margin: 0px
+
+  ul, li
+    +reset-box-model
+
+  ul ul
+    +opacity(0)
+    position: absolute
+    top: 100%
+    left: 0
+    border: 1px solid #ccc
+      top: none
+    a
+      padding-top: 10px
+      padding-bottom: 10px
+
+  li:hover
+    > a, > span
+      background-color: darken($header-background-color, 5%)
+    ul
+      +opacity(1)
+      +single-box-shadow
+
+
+#invite
+  $top-color: darken($invite-background-color, 3%)
+  $bottom-color: lighten($invite-background-color, 5%)
+  +background(linear-gradient($top-color, $bottom-color))
+  +single-box-shadow
+
+  strong
+    font-size: 1.4em
+    font-weight: bold
+    display: block
+  em
+    font-size: 1.4em
+    font-style: normal
+    display: block
+  strong, em
+    +single-text-shadow(lighten($invite-background-color, 40%), 0px, 1px, 0px)
+  a
+    &.signup
+      +big-button
+    &.login
+      +big-button(#eee)

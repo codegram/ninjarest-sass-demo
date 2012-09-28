@@ -1,0 +1,81 @@
+// Estos estilos se van a aplicar a todos los dispositivos con una resolución
+// menor de 720px. Los más frecuentes suelen ser móviles, tablets y netbooks.
+//
+@media only screen and (max-width:720px)
+
+  // Restablecemos la posición del header y bloque de invite
+  // a su estilo por defecto.
+  #header, #invite
+    position: relative
+    top: 0px
+    left: 0px
+    width: auto
+    height: auto
+
+  // Cambiamos el estilo del search box para que se muestre
+  // siempre expandido horizontalmente.
+  #header
+    #search_box
+      display: block
+      position: relative
+      top: 0px
+      left: 0px
+      +reset-box-model
+      padding-top: 10px
+      input, input:focus
+        width: 80%
+        &[type=submit]
+          width: 20%
+
+  // El menú se representará inline. Los eventos :hover se
+  // disparan con un "tap" en pantalla en los dispositivos
+  // móviles.
+  #menu
+    margin-top: 10px
+    position: relative
+    ul ul
+      +rotate(0deg)
+      display: none
+    ul li:hover ul
+      display: block
+    & > ul > li
+      & > a, & > span
+        line-height: 2em
+        height: 2em
+
+  #invite
+    margin-left: 0px
+    font-size: 0.8em
+
+  #content
+    padding-top: 0px
+
+  ul#shurikens
+    li.shuriken
+      +box-sizing(border-box)
+      +single-transition(none)
+      +single-box-shadow(none)
+      h2
+        background-color: $main-color
+
+// Estos estilos sólo se aplican a dispositivos con una resolución igual
+// o menor a 480px. Entre ellos tablets de baja resolución y móviles en
+// modo apaisado y vertical.
+//
+@media only screen and (max-width:480px)
+  ul#shurikens
+    li.shuriken
+      width: auto
+      &:nth-child(even), &:nth-child(odd)
+        +rotate(0)
+
+  #invite
+    em
+      display: none
+    strong
+      width: 40%
+    margin-left: 0px
+    font-size: 0.8em
+    .actions
+      a
+        font-size: 1.1em

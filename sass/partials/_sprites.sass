@@ -1,0 +1,26 @@
+@import "icon/*.png"
+
+// Definimos este mixin para hacer la tarea más sencilla a la
+// hora de definir botones y sus iconos.
+//
+@mixin actions-icon($name)
+  span
+    +icon-sprite(#{$name}-grayscale)
+  &:hover span
+    +icon-sprite($name)
+
+#shurikens
+  .actions
+    padding: 5px
+    span
+      display: inline-block
+      padding-left: image-width("icon/throw.png") + 5px
+      height: image-height("icon/throw.png")
+
+    // Aunque resulta tal vez un poco excesivo, este ejemplo
+    // sirve para demostrar que sass nos proporciona estructuras
+    // de control potentes.
+    //
+    @each $action in throw, love, destroy
+      li.#{$action}
+        +actions-icon($action)

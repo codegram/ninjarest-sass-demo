@@ -1,0 +1,25 @@
+// Generaremos la sensación de desorden rotando ligeramente a
+// izquierda y derecha los shurikens pares y senares respectivamente.
+//
+#shurikens
+  $enthropy: 1.5deg
+  .shuriken
+    &:nth-child(even)
+      +rotate($enthropy)
+    &:nth-child(odd)
+      +rotate(-$enthropy)
+
+// Para que el menú salga con el efecto de rotación correcto,
+// debemos aplicar una rotación de 90 grados y establecer el punto
+// de "pivote" a (0,0) - por defecto es el centro del elemento,
+// es decir (50%, 50%).
+//
+#menu
+  ul ul
+    z-index: -1
+    +transform-origin(0,0)
+    +rotate(-90deg)
+  & > ul > li:hover
+    ul
+      margin-top: 0px
+      +rotate(0deg)
